@@ -46,6 +46,7 @@ INSERT INTO cliente (CPF, email, Telefone) VALUES
 ('874.112.652-93', 'izabela@gmail.com', '46999111111'),
 ('989.325.555-98', 'joana@gmail.com', '146999000000');
 
+SELECT * FROM  cliente
 
 INSERT INTO produto (Un_medida, Preco, Descricao, Categoria) VALUES
 ('Unidade', 45.90, 'Livro Banco de Dados', 'Livro'),
@@ -59,7 +60,7 @@ INSERT INTO produto (Un_medida, Preco, Descricao, Categoria) VALUES
 ('Unidade', 60.00, 'Livro Estrutura de Dados', 'Livro'),
 ('Unidade', 27.50, 'Livro Introdução à Informática', 'Livro');
 
-
+SELECT * FROM produto order by id_produto
 
 INSERT INTO pedido (Dia, Valor_total, cliente_idfk) VALUES
 ('2026-01-05', 85.80, 1),
@@ -72,6 +73,8 @@ INSERT INTO pedido (Dia, Valor_total, cliente_idfk) VALUES
 ('2026-01-25', 155.00, 8),
 ('2026-01-28', 60.00, 9),
 ('2026-01-30', 27.50, 10);
+
+SELECT * FROM pedido
 
 
 INSERT INTO venda (Quantidade, Preco_unitario, pedido_idfk, produto_idfk) VALUES
@@ -86,13 +89,31 @@ INSERT INTO venda (Quantidade, Preco_unitario, pedido_idfk, produto_idfk) VALUES
 (1, 60.00, 9, 9),
 (1, 27.50, 10, 10);
 
+SELECT * FROM venda
+
 UPDATE cliente
 SET Telefone = '46998887777'
 WHERE id_cliente = 1;
 
+
 UPDATE produto
 SET Preco = 79.90
 WHERE id_produto = 3;
+
+SELECT * FROM cliente order by id_cliente 
+
+SELECT * FROM pedido order by id_pedido
+
+SELECT * FROM venda order by pedido_idfk
+
+DELETE FROM venda
+WHERE pedido_idfk = 10 AND produto_idfk = 10;
+
+DELETE FROM pedido
+WHERE id_pedido = 10;
+
+DELETE FROM cliente
+WHERE id_cliente = 10; 
 
 
 
